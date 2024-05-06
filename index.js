@@ -1,7 +1,7 @@
 import { EOL } from 'os';
 import fs from 'fs';
 import { Plugin } from 'release-it';
-import conventionalRecommendedBump from 'conventional-recommended-bump';
+import { Bumper } from 'conventional-recommended-bump';
 import conventionalChangelog from 'conventional-changelog';
 import semver from 'semver';
 import concat from 'concat-stream';
@@ -36,9 +36,11 @@ class ConventionalChangelog extends Plugin {
     this.debug({ increment, latestVersion, isPreRelease, preReleaseId });
     this.debug('conventionalRecommendedBump', { options });
     try {
-      const result = await conventionalRecommendedBump(options, options?.parserOpts);
-      this.debug({ result });
-      let { releaseType } = result;
+      // TODO how to load _this_ preset?
+      const bumper = new Bumper().loadPreset('angular');
+      const recommendation = await bumper.bump();
+      this.debug({ recommendation });
+      let { releaseType } = recommendation;
       if (increment) {
         this.log.warn(`The recommended bump is "${releaseType}", but is overridden with "${increment}".`);
         releaseType = increment;

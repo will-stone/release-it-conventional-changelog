@@ -35,16 +35,16 @@
   },
   "dependencies": {
     "concat-stream": "^2.0.0",
-    "conventional-changelog": "^5.1.0",
-    "conventional-recommended-bump": "^9.0.0",
-    "semver": "^7.5.4"
+    "conventional-changelog": "^6.0.0",
+    "conventional-recommended-bump": "^10.0.0",
+    "semver": "^7.6.0"
   },
   "devDependencies": {
-    "bron": "^2.0.2",
+    "bron": "^2.0.3",
     "release-it": "^17.0.0",
     "shelljs": "^0.8.5",
     "sinon": "^17.0.1",
-    "tmp": "^0.2.1"
+    "tmp": "^0.2.3"
   },
   "peerDependencies": {
     "release-it": "^17.0.0"
