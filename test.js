@@ -54,6 +54,7 @@ const setup = () => {
   const dir = mkTmpDir();
   sh.pushd(dir);
   sh.exec(`git init .`);
+  sh.exec(`git config commit.gpgsign false`);
   add('fix', 'foo');
   return { dir };
 };
